@@ -53,3 +53,23 @@ const compareStrings = (str1, str2) => {
 };
 
 console.info('Matches in ', compareStrings('asdfghj', 'jhggfdaaa'));
+
+// 5 - Create calculator
+const operators = {
+    '*': (x, y) => x * y,
+    '/': (x, y) => x / y,
+    '+': (x, y) => x + y,
+    '-': (x, y) => x - y
+};
+const calculate = (operand1, operand2, operator) => {
+    if (Object.keys(operators).some(key => key === operator)) {
+        return operators[operator](operand1, operand2);
+    } else {
+        console.error('Unknown operator');
+    }
+};
+console.log('Calculator');
+console.log('2 * 9 = ', calculate(2, 9, '*'));
+console.log('6 / 3 = ', calculate(6, 3, '/'));
+console.log('2 - 7 = ', calculate(2, 7, '-'));
+console.log('34 + 7 = ', calculate(34, 7, '+'));

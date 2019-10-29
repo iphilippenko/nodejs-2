@@ -28,3 +28,18 @@ const myCbFunc = (...cbArgs) => {
         callback(cbArgs);
     }
 };
+
+// 3 - Create a function that will replace all number dividing three with ‘foo’,
+// dividing seven with ‘bar’ and dividing three and seven with ‘foobar’. Function with n params.
+
+const fooBarReplace = (args) => {
+    return [...args].map(el => {
+        return (!(el % 3) && !(el % 7)) ? 'foobar'
+            : (!(el % 3) ? 'foo'
+                : (!(el % 7) ? 'bar'
+                    : el));
+    })
+};
+let randomN = Math.floor(Math.random() * (100 - 20 + 1) ) + 20;
+
+console.log('fooBarReplace', fooBarReplace([...Array(randomN).keys()]));

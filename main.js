@@ -20,3 +20,11 @@ console.info([getSum, getMin, getMax, replaceMinMax]
             result: func(customArr)
         }
     }));
+
+// 2 - Create function which will return function with callback in arguments
+
+const myCbFunc = (...cbArgs) => {
+    return (callback) => {
+        callback(cbArgs);
+    }
+};

@@ -40,6 +40,16 @@ const fooBarReplace = (args) => {
                     : el));
     })
 };
-let randomN = Math.floor(Math.random() * (100 - 20 + 1) ) + 20;
+let randomN = Math.floor(Math.random() * (70 - 20 + 1)) + 20;
 
-console.log('fooBarReplace', fooBarReplace([...Array(randomN).keys()]));
+console.info('fooBarReplace', fooBarReplace([...Array(randomN).keys()]));
+
+// 4 - Create function with 2 string params.
+// It must check if letters in the first correspond to the number of matches in second and return %.
+
+const compareStrings = (str1, str2) => {
+    let matchCount = [...str1].reduce((prev, char1) => prev + [...str2].filter(char2 => char1 === char2).length, 0);
+    return ((matchCount / str1.length) * 100).toFixed(2) + '%';
+};
+
+console.info('Matches in ', compareStrings('asdfghj', 'jhggfdaaa'));
